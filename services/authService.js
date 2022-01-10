@@ -23,19 +23,19 @@ module.exports = class AuthService {
            let bytes  = CryptoJS.AES.decrypt(result[0].password, process.env.USER_PASSWORD_KEY);
            let originalText = bytes.toString(CryptoJS.enc.Utf8);
            
-           if(originalText === req.body.password){
+            if(originalText === req.body.password){
                 let token = jwt.sign(result[0], process.env.USER_AUTHENTICATION_KEY);
                 result[0].token = token;
                 return {
                     success:true,
                     data:result
                 };    
-           }else{
+            }else{
                 return {
                     success:false,
                     data:"Authorization is not successfull"
                 };
-           }
+            }
            
         }catch(err){
             

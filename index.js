@@ -7,7 +7,8 @@ const port = 8000;
 const db = require('./models');
 
 //middleware
-
+app.use('/uploads/productImage',express.static(__dirname + '/uploads/productImage'));
+app.use('/uploads/profilePicture',express.static(__dirname + '/uploads/profilePicture'));
 app.use(express.json());
 
 app.use(require('./apinew'));
