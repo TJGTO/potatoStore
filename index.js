@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
@@ -7,6 +8,7 @@ const port = 8000;
 const db = require('./models');
 
 //middleware
+app.use(cors())
 app.use('/uploads/productImage',express.static(__dirname + '/uploads/productImage'));
 app.use('/uploads/profilePicture',express.static(__dirname + '/uploads/profilePicture'));
 app.use(express.json());
